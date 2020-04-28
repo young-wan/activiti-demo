@@ -1,0 +1,38 @@
+3.3.1：资源库流程规则表
+1) act_re_deployment 部署信息表
+2) act_re_model 流程设计模型部署表
+3) act_re_procdef 流程定义数据表
+3.3.2：运行时数据库表
+1) act_ru_execution 运行时流程执行实例表
+2) act_ru_identitylink 运行时流程人员表，主要存储任务节点与参与者的相关信息
+3) act_ru_task 运行时任务节点表
+4) act_ru_variable 运行时流程变量数据表
+3.3.3：历史数据库表
+1) act_hi_actinst 历史节点表
+2) act_hi_attachment 历史附件表
+3) act_ih_comment 历史意见表
+4) act_hi_identitylink 历史流程人员表
+5) act_hi_detail 历史详情表，提供历史变量的查询
+6) act_hi_procinst 历史流程实例表
+7) act_hi_taskinst 历史任务实例表
+8) act_hi_varinst 历史变量表
+3.3.4：组织机构表
+1) act_id_group 用户组信息表
+2) act_id_info 用户扩展信息表
+3) act_id_membership 用户与用户组对应信息表
+4) act_id_user 用户信息表
+这四张表很常见，基本的组织机构管理，关于用户认证方面建议还是自己开发一套，组件自带的功能太简单，使用中有很多需求难以满足
+3.3.5：通用数据表
+1) act_ge_bytearray 二进制数据表
+2) act_ge_property 属性数据表存储整个流程引擎级别的数据,初始化表结构时，会默认插入三条记录，
+
+
+Activiti 提供了 7 个服务接口，都通过 ProcessEngine 来获取，并且支持链式编程风格：
+
+RepositoryService	仓库服务，用于管理仓库，比如部署或删除流程定义、读取流程资源等。
+IdentifyService	身份服务，管理用户、组以及它们之间的关系。
+RuntimeService	运行时服务，管理所有正在运行的流程实例、任务等对象。
+TaskService	任务服务，管理任务。
+FormService	表单服务，管理和流程、任务相关的表单。
+HistroyService	历史服务，管理历史数据。
+ManagementService	引擎管理服务，比如管理引擎的配置、数据库和作业等核心对象。
